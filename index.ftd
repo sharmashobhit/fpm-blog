@@ -1,1 +1,6 @@
--- ftd.text: hello
+-- import: lib
+
+-- lib.header:
+
+--- ftd.text: hello
+
