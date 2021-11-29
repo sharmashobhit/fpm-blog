@@ -25,3 +25,17 @@ jobs:
         id: build
         continue-on-error: false
         run: fpm build
+      - name: Move the build directory
+        id: move
+        continue-on-error: false
+        run: mv .build docs
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: SSR build
+          branch: build
+          commit_options: '--no-verify --signoff'
+          file_pattern: docs/*
+          repository: .
+          commit_user_name: FPM Deploy Bot
+          commit_user_email: fpm-deploy-bot@fifthtry.com
+          commit_author: FPM Bot <fpm-deploy-bot@fifthtry.com> # defaults to author of the commit that triggered the run
