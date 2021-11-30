@@ -27,7 +27,7 @@ jobs:
         id: move
         continue-on-error: false
         run: mv .build ../.
-      - run: git checkout build --force && /bin/rm -rf * && mv ../build/* .
+      - run: git fetch && git checkout build --force && /bin/rm -rf * && mv ../build/* .
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit changes to build branch
         with:
