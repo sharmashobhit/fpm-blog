@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v2
-        with:
-          path: main
       - name: Install fpm
         id: install_fpm
         continue-on-error: false
@@ -25,11 +23,16 @@ jobs:
         id: build
         continue-on-error: false
         run: fpm build
+      - name: Move the build assets to their location
+        id: move
+        continue-on-error: false
+        run: mv .build ../.
+      - run: git checkout build --force && /bin/rm -rf * && mv ../build/* .
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit changes to build branch
         with:
           commit_message: SSR build
           branch: build
           commit_options: '--no-verify --signoff'
-          file_pattern: docs/*
           repository: .
+          
