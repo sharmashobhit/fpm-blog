@@ -3,6 +3,9 @@ name: Deploy Site
 on:
   push:
     branches: [ main ]
+    paths:
+    - '**.ftd'
+
 env:
   CARGO_TERM_COLOR: always
 
