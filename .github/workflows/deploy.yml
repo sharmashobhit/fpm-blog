@@ -44,7 +44,6 @@ jobs:
         working-directory: ./main
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit changes to build branch
-        working-directory: ./build
         with:
           commit_message: SSR build
           branch: build
