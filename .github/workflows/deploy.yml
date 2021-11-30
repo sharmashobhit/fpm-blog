@@ -38,7 +38,7 @@ jobs:
       - run: /bin/rm -rf *
       - uses: actions/download-artifact@master
         with:
-          name: my-artifact
+          name: SSR_BUILD
           path: .
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit changes to build branch
