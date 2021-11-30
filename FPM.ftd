@@ -1,4 +1,6 @@
 -- import: fpm
 
--- fpm.config:
-package: fpm-blog
+-- fpm.package:
+name: fpm-blog
+
+
